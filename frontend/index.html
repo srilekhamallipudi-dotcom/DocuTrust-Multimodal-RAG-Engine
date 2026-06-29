@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuTrust AI Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js Engine for Rendering Real-time Interactive Analytics Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Premium Font Family Layer Injection -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- LEFT NAVIGATION MODULE SIDEBAR -->
+    <div class="sidebar-module">
+        <div class="sidebar-brand">
+            <span class="brand-shield">🛡️</span>
+            <h2>DocuTrust</h2>
+        </div>
+        <nav class="nav-menu">
+            <button class="nav-link active" onclick="switchModule('home')">🏠 Home</button>
+            <button class="nav-link" onclick="switchModule('upload')">📤 Upload PDF</button>
+            <button class="nav-link" onclick="switchModule('ask-ai')">💬 Ask AI</button>
+            <button class="nav-link" onclick="switchModule('summary')">📄 Summary</button>
+            <button class="nav-link" onclick="switchModule('analytics')">📊 Analytics</button>
+            <button class="nav-link" onclick="switchModule('about')">ℹ️ About</button>
+        </nav>
+    </div>
+
+    <!-- MAIN INTERACTIVE DISPLAY MODULE CONTAINER -->
+    <div class="main-module-display">
+        
+        <!-- MODULE 1: HOME (FROSTED CYBERPUNK GLASS THEME) -->
+        <div id="module-home" class="module-tab active-module">
+            <div class="glass-hero-glow"></div>
+            <div class="glass-hero-card">
+                <h1>DocuTrust Intelligence Workspace <span class="wave-hand">👋</span></h1>
+                <p class="hero-subtitle">Next-generation secure RAG engine analysis using localized AI agent architecture layers.</p>
+                
+                <div class="glass-stats-grid">
+                    <div class="glass-stat-item">
+                        <span class="stat-icon">📁</span>
+                        <div>
+                            <h4>Secure Vault</h4>
+                            <p>Isolated Sandbox</p>
+                        </div>
+                    </div>
+                    <div class="glass-stat-item">
+                        <span class="stat-icon">🤖</span>
+                        <div>
+                            <h4>AI Agents</h4>
+                            <p>Active Realtime</p>
+                        </div>
+                    </div>
+                    <div class="glass-stat-item">
+                        <span class="stat-icon">⚡</span>
+                        <div>
+                            <h4>Embedding Vector</h4>
+                            <p>ChromaDB Nodes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 2: UPLOAD (Nee Form Logic Handlers Block Intercepted) -->
+        <div id="module-upload" class="module-tab">
+            <div class="glass-hero-card">
+                <h2>Upload Secure Documents</h2>
+                <p class="section-desc">Ingest multi-page files or layout logs into private dynamic vector cluster databases blocks processing models paths.</p>
+                
+                <form onsubmit="event.preventDefault(); uploadPDF();">
+                    <input type="file" id="pdfFile" multiple accept=".pdf">
+                    <button type="submit">Upload Document</button>
+                </form>
+                <p id="uploadStatus"></p>
+            </div>
+        </div>
+
+        <!-- MODULE 3: ASK AI CORE FRAMEWORK LAYOUT SYSTEM -->
+        <div id="module-ask-ai" class="module-tab">
+            <div class="ask-ai-split-grid">
+                
+                <!-- Middle Core Queries Processing Engine Interface Field -->
+                <div class="middle-panel-box">
+                    <h2>Ask Intelligent Agent Question</h2>
+                    <form onsubmit="event.preventDefault(); askQuestion();">
+                        <input type="text" id="question" placeholder="Ask structural query or details from uploaded documents...">
+                        <button type="submit">Ask Engine</button>
+                    </form>
+                    
+                    <h3>AI System Generated Answer</h3>
+                    <div id="answerBox">-</div>
+                </div>
+
+                <!-- Right Analytics Logs Framework Panel Display Housing Metrics -->
+                <div class="right-panel-box">
+                    <h2>AI Agents Tracking Pipeline</h2>
+                    
+                    <h3>Runtime Tracking Logs Pipeline Timeline</h3>
+                    <div id="timeline">-</div>
+
+                    <div class="meta-metrics-stack">
+                        <div>
+                            <h3>Confidence Score</h3>
+                            <div id="confidence">-</div>
+                        </div>
+                        <div>
+                            <h3>Citation Index Reference</h3>
+                            <div id="citation">-</div>
+                        </div>
+                    </div>
+
+                    <h3>Document Evidence Fragment Extract</h3>
+                    <div id="evidence">-</div>
+
+                    <h3>Supporting Chunk ID Counters</h3>
+                    <div id="chunks">-</div>
+
+                    <h3>Document Vector Pipeline Health</h3>
+                    <div class="card">
+                        <p><b>Total Document Files Ingested:</b> <span id="pages">-</span></p>
+                        <p><b>Total Embedded Vector Chunks:</b> <span id="totalChunks">-</span></p>
+                        <p><b>Cluster Deployment Status:</b> <span id="status">-</span></p>
+                        <p><b>Core Document Language Mode:</b> <span id="language">-</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MODULE 4: SUMMARY -->
+        <div id="module-summary" class="module-tab">
+            <h2>Document Summarization Pipeline</h2>
+            <div class="glass-hero-card">
+                <p>Advanced document summary extraction algorithms logic blocks will display deep insights reports data inside this module stream dynamic layout contexts.</p>
+            </div>
+        </div>
+
+        <!-- MODULE 5: ANALYTICS (REAL CHART CORE INJECTION VIEWS) -->
+        <div id="module-analytics" class="module-tab">
+            <h2>System RAG Analytics Dashboard</h2>
+            <p class="section-desc">Real-time charts plotting localized embedded metadata analysis vector database file clusters distribution stats metrics load indices.</p>
+            
+            <div class="analytics-charts-flex">
+                <div class="chart-container-box">
+                    <h3>Retrieval Trust Confidence Scores</h3>
+                    <canvas id="confidenceChart"></canvas>
+                </div>
+                <div class="chart-container-box">
+                    <h3>Document Chunks Partition Share</h3>
+                    <canvas id="chunksChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 6: ABOUT -->
+        <div id="module-about" class="module-tab">
+            <h2>About DocuTrust Trust Architecture</h2>
+            <div class="glass-hero-card">
+                <p><b>Version 1.0.0 Stable Build Architecture</b></p><br>
+                <p>DocuTrust structural pipeline executes isolated calculations using specialized file chunk mapping metrics keys parameters node loops logic flow to guarantee enterprise private security protocols.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
